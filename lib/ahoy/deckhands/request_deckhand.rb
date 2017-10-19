@@ -9,7 +9,7 @@ module Ahoy
       end
 
       def ip
-        request.remote_ip
+        request.env['HTTP_CF_CONNECTING_IP'] || request.remote_ip
       end
 
       def user_agent
